@@ -40,11 +40,11 @@ const Login = () => {
         <View style={styles.container}>
             <Text style={{ fontWeight: 'bold', fontSize: 26, color: 'white' }}>My App</Text>
 
-            <View style={{ marginTop: 40 }}>
+            <View style={{ marginTop:40 }}>
                 <TextInput
                     style={styles.textinput}
-                    placeholder="Email"
-                    placeholderTextColor="#FFFFFF"
+                    placeholder='Email'
+                    placeholderTextColor="#C0C0C0"
                     onChangeText={(email) => setEmail(email)}
                     autoCapitalize="none"
                     autoCorrect={false}
@@ -52,8 +52,8 @@ const Login = () => {
                 <View style={styles.passwordContainer}>
                     <TextInput
                         style={styles.textinput}
-                        placeholder="Password"
-                        placeholderTextColor="#FFFFFF"
+                        placeholder='Password'
+                        placeholderTextColor="#C0C0C0"
                         onChangeText={(password) => setPassword(password)}
                         autoCapitalize="none"
                         autoCorrect={false}
@@ -66,17 +66,17 @@ const Login = () => {
                 </View>
 
             </View>
-            <TouchableOpacity onPress={() => { forgetPassword() }} style={{ marginTop: 10 }}>
-                <Text style={{ fontSize: 14, color: 'white', left: 110 }}>Forgot Password ?</Text>
+            <TouchableOpacity onPress={() => { forgetPassword() }} >
+                <Text style={{ fontSize: 14, color: 'white', left: 110 ,bottom:6}}>Forgot Password ?</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => loginUser(email, password)} style={styles.button}>
                 <Text style={{ fontWeight: 'bold', fontSize: 22 }}>Sign In</Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => navigation.navigate('Registration')} style={{ marginTop: 20 }}>
-                <Text style={{ fontWeight: 'bold', fontSize: 16, color: '#FFD482', left: 85, top: 22 }}>Signup</Text>
+                <Text style={{ fontWeight: 'bold', fontSize: 16, color: '#FFD482', left: 85, top:202 ,textDecorationLine: 'underline'}}>Signup</Text>
             </TouchableOpacity>
-            <Text style={{ fontWeight: 'bold', fontSize: 16, color: 'white', right: 30 }}>Don't have an account?</Text>
+            <Text style={{ fontWeight: 'bold', fontSize: 16, color: 'white', right: 30,top:180 }}>Don't have an account?</Text>
         </View>
     );
 };

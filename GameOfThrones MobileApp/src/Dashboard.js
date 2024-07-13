@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     color: 'white',
     margin: 5,
-    left:15,
+    left: 15,
 
   },
   characterImage: {

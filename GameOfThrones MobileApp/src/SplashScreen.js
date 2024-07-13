@@ -6,10 +6,9 @@ const SplashScreen = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
-    // Simulate a loading process or any initialization task
     setTimeout(() => {
-      navigation.replace('Login'); // Navigate to Login screen
-    }, 2000); // Adjust the delay as needed
+      navigation.replace('LandingPage'); // Navigate to LandingPage screen
+    }, 2000);
   }, [navigation]);
 
   return (
@@ -24,12 +23,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#2A2A2A', // Background color
+    backgroundColor: '#2A2A2A',
   },
   text: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#FFFFFF', // Text color
+    color: '#FFFFFF',
   },
 });
 
