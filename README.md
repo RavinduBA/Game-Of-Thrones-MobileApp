@@ -24,11 +24,11 @@ This mobile application allows users to explore characters from the Game of Thro
 
 
 <div style="display: flex; flex-wrap: wrap;">
-  <img src="/Screenshots/LandingPage.jpg" alt="Screenshot 1" width="200" height="300" style="margin: 5px;">
-  <img src="/Screenshots/SignInPage.jpg" alt="Screenshot 2" width="200" height="300" style="margin: 5px;">
-  <img src="/Screenshots/RegistrationPage.jpg" alt="Screenshot 3" width="200" height="300" style="margin: 5px;">
-  <img src="/Screenshots/DashBoardPage.jpg" alt="Screenshot 4" width="200" height="300" style="margin: 5px;">
-  <img src="/Screenshots/SettingsPage.jpg" alt="Screenshot 5" width="200" height="300" style="margin: 5px;">
+
+  <img src="/Screenshots/SignInPage.jpg" alt="Screenshot 2" width="210" height="400" style="margin: 8px;">
+  <img src="/Screenshots/RegistrationPage.jpg" alt="Screenshot 3" width="210" height="400" style="margin: 8px;">
+  <img src="/Screenshots/DashBoardPage.jpg" alt="Screenshot 4" width="210" height="400" style="margin: 8px;">
+  <img src="/Screenshots/SettingsPage.jpg" alt="Screenshot 5" width="210" height="400" style="margin: 8px;">
 </div>
 
 ## Installation and Setup
