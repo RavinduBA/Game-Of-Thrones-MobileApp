@@ -58,6 +58,8 @@ const Registration = ({ navigation }) => {
                 email,
             });
             alert('Verification email has been sent to your email address');
+            // Navigate to login screen after successful registration
+            navigation.navigate('Login'); // Change 'Login' to your actual login screen name if different
         } catch (error) {
             alert(error.message);
         }

@@ -2,21 +2,30 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from '../config';
-import { Ionicons } from '@expo/vector-icons'; // Import Ionicons from Expo icons library
+import { Ionicons } from '@expo/vector-icons';
 
 const Login = () => {
     const navigation = useNavigation();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+    const [showPassword, setShowPassword] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const loginUser = async (email, password) => {
+        // Trim email and validate format
+        email = email.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            setErrorMessage('Invalid email format');
+            return;
+        }
+
         try {
             await firebase.auth().signInWithEmailAndPassword(email, password);
             navigation.navigate('Dashboard');
         } catch (error) {
-            alert(error.message);
+            setErrorMessage('Email or password is incorrect');
         }
     };
 
@@ -24,59 +33,64 @@ const Login = () => {
         setShowPassword(!showPassword);
     };
 
-    //Forget Password
-
     const forgetPassword = () => {
-        firebase.auth().sendPasswordResetEmail(email)
+        firebase.auth().sendPasswordResetEmail(email.trim())
             .then(() => {
                 alert('Password reset email has been sent to your email address');
             }).catch((error) => {
-                alert(error);
-            })
+                setErrorMessage(error.message);
+            });
     };
-
 
     return (
         <View style={styles.container}>
             <Text style={{ fontWeight: 'bold', fontSize: 26, color: 'white' }}>My App</Text>
 
-            <View style={{ marginTop:40 }}>
+            <View style={{ marginTop: 40 }}>
                 <TextInput
                     style={styles.textinput}
                     placeholder='Email'
                     placeholderTextColor="#C0C0C0"
-                    onChangeText={(email) => setEmail(email)}
+                    onChangeText={(email) => {
+                        setEmail(email);
+                        setErrorMessage('');
+                    }}
                     autoCapitalize="none"
                     autoCorrect={false}
+                    value={email}
                 />
                 <View style={styles.passwordContainer}>
                     <TextInput
                         style={styles.textinput}
                         placeholder='Password'
                         placeholderTextColor="#C0C0C0"
-                        onChangeText={(password) => setPassword(password)}
+                        onChangeText={(password) => {
+                            setPassword(password);
+                            setErrorMessage('');
+                        }}
                         autoCapitalize="none"
                         autoCorrect={false}
-                        secureTextEntry={!showPassword} // Toggle secure text entry based on showPassword state
+                        secureTextEntry={!showPassword}
+                        value={password}
                     />
                     <TouchableOpacity onPress={toggleShowPassword} style={styles.visibilityIcon}>
-                        {/* Eye icon for toggling password visibility */}
                         <Ionicons name={showPassword ? 'eye-off-outline' : 'eye-outline'} size={24} color="white" />
                     </TouchableOpacity>
                 </View>
-
             </View>
-            <TouchableOpacity onPress={() => { forgetPassword() }} >
-                <Text style={{ fontSize: 14, color: 'white', left: 110 ,bottom:6}}>Forgot Password ?</Text>
+            {errorMessage ? (
+                <Text style={styles.errorText}>{errorMessage}</Text>
+            ) : null}
+            <TouchableOpacity onPress={forgetPassword}>
+                <Text style={{ fontSize: 14, color: 'white', left: 110, bottom: 6 }}>Forgot Password?</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => loginUser(email, password)} style={styles.button}>
                 <Text style={{ fontWeight: 'bold', fontSize: 22 }}>Sign In</Text>
             </TouchableOpacity>
-
             <TouchableOpacity onPress={() => navigation.navigate('Registration')} style={{ marginTop: 20 }}>
-                <Text style={{ fontWeight: 'bold', fontSize: 16, color: '#FFD482', left: 85, top:202 ,textDecorationLine: 'underline'}}>Signup</Text>
+                <Text style={{ fontWeight: 'bold', fontSize: 16, color: '#FFD482', left: 85, top: 202, textDecorationLine: 'underline' }}>Signup</Text>
             </TouchableOpacity>
-            <Text style={{ fontWeight: 'bold', fontSize: 16, color: 'white', right: 30,top:180 }}>Don't have an account?</Text>
+            <Text style={{ fontWeight: 'bold', fontSize: 16, color: 'white', right: 30, top: 180 }}>Don't have an account?</Text>
         </View>
     );
 };
@@ -99,7 +113,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#3D3D3D',
         borderRadius: 10,
         color: 'white'
-
     },
     button: {
         height: 48,
@@ -114,11 +127,15 @@ const styles = StyleSheet.create({
         position: 'absolute',
         right: 20,
         top: 18,
-        zIndex: 1, // Ensure the icon is above the password input
+        zIndex: 1,
     },
     passwordContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        position: 'relative', // Ensure the icon is positioned relative to this container
+        position: 'relative',
+    },
+    errorText: {
+        color: 'red',
+        marginTop: 10,
     },
 });

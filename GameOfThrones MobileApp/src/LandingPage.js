@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
 
 const LandingPage = () => {
   const navigation = useNavigation();
@@ -10,43 +11,59 @@ const LandingPage = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Welcome to Game of Thrones App</Text>
-      <Text style={styles.description}>
-        A mobile app for Game of Thrones fans
-      </Text>
+    <ImageBackground
+      source={require('../assets/3.jpg')} 
+      style={styles.container}
+    >
+      <Text style={styles.title}>Game of Thrones</Text>
+      <Text style={styles.title2}> Encyclopedia</Text>
+      <Text style={styles.subtitle}>Explore the World of Westeros</Text>
+      <Text style={styles.description}>Discover the characters, families, and their stories.</Text>
       <TouchableOpacity style={styles.button} onPress={navigateToLogin}>
         <Text style={styles.buttonText}>Go to Login</Text>
       </TouchableOpacity>
-    </View>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#1E1E1E',
+
   },
   title: {
-    fontSize: 24,
+    fontSize: 45,
     fontWeight: 'bold',
-    color: '#FFFFFF',
-    marginBottom: 20,
+    color: 'black',
+    top: 130,
+    shadowColor: 'black',
+
+  },
+  title2: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: 'black',
+    top: 120,
+  },
+  subtitle: {
+    fontSize: 18,
+    color: '#FFD482',
+    top:500,
   },
   description: {
     fontSize: 16,
-    color: '#FFFFFF',
+    color: '#C0C0C0',
     marginBottom: 40,
     textAlign: 'center',
-    paddingHorizontal: 20,
+    top: 500,
   },
   button: {
-    backgroundColor: '#FFD482',
+    backgroundColor: '#EFC990',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
+    top: 470,
   },
   buttonText: {
     fontSize: 16,
