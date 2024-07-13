@@ -11,7 +11,7 @@ This mobile application allows users to explore characters from the Game of Thro
 - Password reset via email
 - Firebase integration for authentication and database
 
-## Technologies Used
+## Technologies/Libraries Used
 
 - React Native
 - Firebase (Authentication, Firestore)
@@ -34,8 +34,14 @@ This mobile application allows users to explore characters from the Game of Thro
 ## Installation and Setup
 
 1. **Clone the repository**
-
    ```bash
-   git clone https://github.com/your-username/Game-Of-Thrones-MobileApp.git
+   git clone https://github.com/RavinduBA/Game-Of-Thrones-MobileApp.git
    cd Game-Of-Thrones-MobileApp
+2. **Install dependencies**
+   ```bash
+   npm install
+2. **Run the app**
+   ```bash
+   npm start
+
 
