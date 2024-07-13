@@ -19,7 +19,7 @@ This mobile application allows users to explore characters from the Game of Thro
 
 ## Screenshots
 ![Screenshot 1](/Screenshots/SigninPage.jpg)
-![Screenshot 2](/screenshots/screenshot2.png)
+![Screenshot 2](/Screenshots/LandingPage.jpg)
 
 ## Installation and Setup
 1. **Clone the repository**
