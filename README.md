@@ -22,11 +22,13 @@ This mobile application allows users to explore characters from the Game of Thro
 
 ## Screenshots
 
-![Screenshot 1](/Screenshots/LandingPage.jpg)
-![Screenshot 2](/Screenshots/SignInPage.jpg)
-![Screenshot 3](/Screenshots/RegistrationPage.jpg)
-![Screenshot 4](/Screenshots/DashBoardPage.jpg)
-![Screenshot 5](/Screenshots/SettingsPage.jpg)
+<div style="display: flex; flex-wrap: wrap;">
+  <img src="/Screenshots/LandingPage.jpg" alt="Screenshot 1" width="200" style="margin: 5px;">
+  <img src="/Screenshots/SignInPage.jpg" alt="Screenshot 2" width="200" style="margin: 5px;">
+  <img src="/Screenshots/RegistrationPage.jpg" alt="Screenshot 3" width="200" style="margin: 5px;">
+  <img src="/Screenshots/DashBoardPage.jpg" alt="Screenshot 4" width="200" style="margin: 5px;">
+  <img src="/Screenshots/SettingsPage.jpg" alt="Screenshot 5" width="200" style="margin: 5px;">
+</div>
 
 ## Installation and Setup
 
@@ -36,9 +38,3 @@ This mobile application allows users to explore characters from the Game of Thro
    git clone https://github.com/your-username/Game-Of-Thrones-MobileApp.git
    cd Game-Of-Thrones-MobileApp
 
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
